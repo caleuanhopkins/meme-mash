@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <title></title>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand"></a>
+    </nav>
+
+    <main role="main" style="padding-top:20px;">
+        <section class="jumbotron mb-0 text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Uncle Zuck's Good Old Fashion Meme-Mash</h1>
+                <p class="lead text-muted">somethng about the game.</p>
+            </div>
+        </section>
+        <div class="album py-5 bg-light">
+            <div class="container">
+    
+              <div class="row" style="align-items:center">
+                <div class="col-md-4">
+                  <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" src="{{memes[0].img}}"/>
+                    <div class="card-body">
+                      <p class="card-text">{{memes[0].title}}</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group ">
+                                <form action="/vote/{{memes[0].id}}" method="POST">
+                                    <input type="hidden" name="name" value="{{memes[0].title}}" />
+                                    <button  type="submit" class="btn  btn-success">VOTE</button>
+                                </form>                       
+                             </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4  text-center align-middle">
+                  <h2 class="align-middle">VS</h2>
+                </div>
+                <div class="col-md-4">
+                  <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" src="{{memes[1].img}}" />
+                    <div class="card-body">
+                      <p class="card-text">{{memes[1].title}}</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <form action="/vote/{{memes[1].id}}" method="POST">
+                                <input type="hidden" name="name" value="{{memes[1].title}}" />
+                                <button  type="submit" class="btn  btn-success">VOTE</button>
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </main>
+</body>
+</html>
