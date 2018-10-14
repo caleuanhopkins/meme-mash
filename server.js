@@ -41,7 +41,7 @@ nunjucks.configure('views', {
 
 app.get('/', function (req, res) {
     let offset = Math.floor(Math.random() * 1000) + 1 ;
-    axios.get('https://api.giphy.com/v1/gifs/search?fmt=json&limit=2&offset='+offset+'&rating=PG-13&q=memes&api_key='+process.env.GIPHY_API_KEY)
+    axios.get('https://api.giphy.com/v1/gifs/trending?fmt=json&limit=2&offset='+offset+'&rating=PG-13&q=funny&api_key='+process.env.GIPHY_API_KEY)
     .then(function (response) {
         let memes = [];
         for(meme in response.data.data){
@@ -91,7 +91,7 @@ app.post('/vote/:giphyid', async (req, res) => {
     axios.get('https://api.giphy.com/v1/gifs/'+req.params.giphyid+'?api_key='+process.env.GIPHY_API_KEY)
     .then(function (response) {
         let samememe = {img:response.data.data.images.downsized_large.url, title:response.data.data.title,id:response.data.data.id};
-        axios.get('https://api.giphy.com/v1/gifs/search?fmt=json&limit=1&offset='+offset+'&rating=PG-13&q=memes&api_key='+process.env.GIPHY_API_KEY)
+        axios.get('https://api.giphy.com/v1/gifs/trending?fmt=json&limit=1&offset='+offset+'&rating=PG-13&q=funny&api_key='+process.env.GIPHY_API_KEY)
         .then(function (response) {
             let memes = [samememe];
             for(meme in response.data.data){
